@@ -1189,7 +1189,7 @@ int main(int argc, char *argv[])
 
 	detach = 1;
 	printpid = 0;
-
+	usage();//johnny_V24_2
 	while ((opt=getopt(argc, argv, "bnpt:s:l")) != EOF) {
 		switch(opt) {
 		case 'b':

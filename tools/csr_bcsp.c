@@ -84,7 +84,8 @@ int csr_open_bcsp(char *device)
 	ti.c_cc[VMIN] = 1;
 	ti.c_cc[VTIME] = 0;
 
-	cfsetospeed(&ti, B38400);
+//johnny_V24_2	cfsetospeed(&ti, B38400);
+	cfsetospeed(&ti, B115200);
 
 	if (tcsetattr(fd, TCSANOW, &ti) < 0) {
 		fprintf(stderr, "Can't change port settings: %s (%d)\n",

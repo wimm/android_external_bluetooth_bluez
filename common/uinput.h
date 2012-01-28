@@ -574,7 +574,8 @@ extern "C" {
 #define ABS_TOOL_WIDTH		0x1c
 #define ABS_VOLUME		0x20
 #define ABS_MISC		0x28
-#define ABS_MAX			0x3f
+//johnny_V25_2 #define ABS_MAX			0x3f
+#define ABS_MAX			0x46
 #define ABS_CNT			(ABS_MAX+1)
 
 /*

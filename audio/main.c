@@ -135,6 +135,7 @@ static void sco_server_cb(GIOChannel *chan, GError *err, gpointer data)
 	return;
 
 drop:
+	debug("Dropping SCO connection from %s", addr);
 	g_io_channel_shutdown(chan, TRUE, NULL);
 }
 
@@ -159,8 +160,9 @@ static int audio_init(void)
 	if (audio_manager_init(connection, config, &enable_sco) < 0)
 		goto failed;
 
-	if (!enable_sco)
+	if (!enable_sco) {
 		return 0;
+	}
 
 	sco_server = bt_io_listen(BT_IO_SCO, sco_server_cb, NULL, NULL,
 					NULL, NULL,
@@ -170,6 +172,7 @@ static int audio_init(void)
 		goto failed;
 	}
 
+	debug("Started SCO server socket");
 	return 0;
 
 failed:

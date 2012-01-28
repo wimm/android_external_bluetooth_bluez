@@ -82,7 +82,48 @@ LOCAL_MODULE:=hciconfig
 
 include $(BUILD_EXECUTABLE)
 
+#	johnny_V24_2_s
+# jeff bccmd tool 
 #
+# bccmd
+#
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES:= \
+	ubcsp.c  \
+      csr_hci.c \
+      csr_bcsp.c \
+      csr_h4.c   \
+      csr_3wire.c \
+      csr.c   \
+      bccmd.c
+
+
+LOCAL_C_INCLUDES:=\
+	$(LOCAL_PATH)/../include \
+	$(LOCAL_PATH)/../common \
+
+
+LOCAL_CFLAGS:= \
+	-DSTORAGEDIR=\"/tmp\" \
+	-DVERSION=\"4.47\"
+
+LOCAL_SHARED_LIBRARIES := \
+	libbluetooth \
+	libcutils \
+
+LOCAL_STATIC_LIBRARIES := \
+	libbluez-common-static
+
+LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
+LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE:=bccmd
+
+include $(BUILD_EXECUTABLE)
+
+
+# johnny_V24_2_e
 # hcitool
 #
 
